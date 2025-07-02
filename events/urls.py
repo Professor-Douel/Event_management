@@ -3,6 +3,8 @@ from rest_framework.routers import DefaultRouter
 from .views import EventViewSet, EventRegistrationViewSet
 
 
+app_name = "events"
+
 router = DefaultRouter()
 
 router.register("events", EventViewSet)
