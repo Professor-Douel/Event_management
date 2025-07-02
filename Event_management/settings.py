@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "events",
     "djoser",
     "django_filters",
+    "drf_spectacular",
 ]
 
 REST_FRAMEWORK = {
@@ -56,6 +57,7 @@ REST_FRAMEWORK = {
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 MIDDLEWARE = [
