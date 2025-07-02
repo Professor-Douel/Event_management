@@ -1,3 +1,4 @@
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, permissions
 
 from events.models import Event, EventRegistration
@@ -8,7 +9,10 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    filter_backends = (DjangoFilterBackend,)
+    filterset_fields = ("location", "date")
+
 
 
 class EventRegistrationViewSet(viewsets.ModelViewSet):
