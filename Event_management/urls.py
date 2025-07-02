@@ -23,3 +23,5 @@ urlpatterns = [
     path("auth/", include("djoser.urls")),
     path("auth/", include("djoser.urls.authtoken")),
 ]
+
+app_name = "events"
