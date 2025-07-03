@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.shortcuts import redirect
 from django.urls import path, include
 from drf_spectacular.views import (
     SpectacularAPIView,
@@ -6,7 +7,11 @@ from drf_spectacular.views import (
     SpectacularRedocView,
 )
 
+def redirect_to_events(request):
+    return redirect('/api/events/')
+
 urlpatterns = [
+    path('', redirect_to_events),
     path(
         "admin/",
         admin.site.urls
